@@ -1,13 +1,26 @@
-<form action="input.php" method="POST">
+@if($errors->any())
+<div>
+  <ul>
+    @foreach($errors->all() as $error)
+    <li>{{ $error }}</li>
+    @endforeach
+  </ul>
+</div>
+@endif
+
+<form action="{{ route('submit') }}" method="post">
+  @csrf
 <p>Введите название места:<br>
-<input type="text" name="firstname" /></p>
+<input type="text" name="firstname" value="{{ old('firstname') }}" /></p>
 <p>Выберите тип места: <br>
 <select name="user_type">
-    <option value="ASP.NET">Город</option>
-    <option value="PHP">Мегаполис</option>
-    <option value="Ruby">Деревня</option>
-    <option value="Python">Село</option>
-    <option value="Java">Посёлок городсткого типа</option>
+    <option value="Город">Город</option>
+    <option value="Мегаполис">Мегаполис</option>
+    <option value="Деревня">Деревня</option>
+    <option value="Село">Село</option>
+    <option value="Посёлок городсткого типа">Посёлок городсткого типа</option>
 </select></p>
-<input type="submit" value="Отправить">
+<button type="submit">Отправить</button>
 </form>
+
+<a href="{{ route('places') }}">Назад</a>

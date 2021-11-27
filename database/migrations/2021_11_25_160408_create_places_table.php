@@ -18,6 +18,7 @@ class CreatePlacesTable extends Migration
             $table->string('name');
             $table->string('type');
             $table->timestamp('created_at');
+            $table->timestamp('updated_at');
         });
     }
 
