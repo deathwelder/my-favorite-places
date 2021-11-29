@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Place;
 use App\Http\Requests\submitRequest;
+use Illuminate\Support\Facades\Storage;
 
 class mainController extends Controller
 {
@@ -23,6 +24,7 @@ class mainController extends Controller
         $place->name = $req->input('firstname');
         $place->type = $req->input('user_type');
 
+
         $place->save();
 
         return redirect()->route('places');
@@ -34,6 +36,13 @@ class mainController extends Controller
     }
 
     public function addPhoto($id) {
+      $place = new Place();
       return view('addPhoto');
+    }
+
+    public function photo(Request $request) {
+      $file = $request->file('image')->store('uploads', 'public');
+      Storage::put('file.txt', 'Hello world!');
+      return view('photoPlace', ['file' => $file]);
     }
 }

@@ -8,7 +8,7 @@
 </div>
 @endif
 
-<form action="{{ route('submit') }}" method="post">
+<form action="{{ route('submit') }}" method="post" enctype="multipart/form-data">
   @csrf
 <p>Введите название места:<br>
 <input type="text" name="firstname" value="{{ old('firstname') }}" /></p>
@@ -20,7 +20,8 @@
     <option value="Село">Село</option>
     <option value="Посёлок городсткого типа">Посёлок городсткого типа</option>
 </select></p>
-<button type="submit">Отправить</button>
+
+
 </form>
 
 <a href="{{ route('places') }}">Назад</a>

@@ -1,4 +1,4 @@
-<form action="{{ route('addPhoto') }}" method="post">
+<form action="{{ route('photo') }}" method="post" enctype="multipart/form-data">
   @csrf
 <p>Загрузите фото:<br>
 <input type="file" name="image">

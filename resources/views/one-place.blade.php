@@ -4,3 +4,5 @@
   <tr><td>{{ $places->id }}</td><td><a href="">{{ $places->name }}</a></td><td>{{ $places->type }}</td></tr>
 
 </table>
+<br>
+<a href="{{ route('addPhoto', $places->id) }}">Добавьте фото</a>
