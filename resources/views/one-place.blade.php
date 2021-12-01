@@ -5,4 +5,4 @@
 
 </table>
 <br>
-<a href="{{ route('addPhoto', $places->id) }}">Добавьте фото</a>
+<a href="{{ route('addPhoto', $places->id) }}" name="image">Добавьте фото</a>

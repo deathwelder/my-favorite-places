@@ -13,9 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('places/create', 'App\Http\Controllers\mainController@create')->name('create');
-Route::get('/places', 'App\Http\Controllers\mainController@places')->name('places');
-Route::post('/places/submit', 'App\Http\Controllers\mainController@submit')->name('submit');
-Route::get('places/{id}/', 'App\Http\Controllers\mainController@info')->name('info');
-Route::get('places/{id}/photos/add', 'App\Http\Controllers\mainController@addPhoto')->name('addPhoto');
-Route::post('/places/photos/add/photo', 'App\Http\Controllers\mainController@photo')->name('photo');
+
+
+Route::prefix('places')->group(function() {
+        Route::get('create', 'App\Http\Controllers\mainController@create')->name('create');
+        Route::post('submit', 'App\Http\Controllers\mainController@submit')->name('submit');
+        Route::get('/', 'App\Http\Controllers\mainController@places')->name('places');
+        Route::get('{id}', 'App\Http\Controllers\mainController@info')->name('info');
+        Route::get('{id}/photos/add', 'App\Http\Controllers\mainController@addPhoto')->name('addPhoto');
+        Route::post('photos/add/photo', 'App\Http\Controllers\mainController@photo')->name('photo');
+});
+
+Route::get('/photos/add', 'App\Http\Controllers\mainController@addPhoto2')->name('photo2');
+Route::get('/menu', 'App\Http\Controllers\mainController@showMenu')->name('menu');

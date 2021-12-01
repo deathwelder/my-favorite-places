@@ -24,7 +24,6 @@ class mainController extends Controller
         $place->name = $req->input('firstname');
         $place->type = $req->input('user_type');
 
-
         $place->save();
 
         return redirect()->route('places');
@@ -42,7 +41,15 @@ class mainController extends Controller
 
     public function photo(Request $request) {
       $file = $request->file('image')->store('uploads', 'public');
-      Storage::put('file.txt', 'Hello world!');
       return view('photoPlace', ['file' => $file]);
+    }
+
+    public function addPhoto2() {
+      $place = new Place();
+      return view('photo2');
+    }
+
+    public function showMenu() {
+      return view('menu');
     }
 }

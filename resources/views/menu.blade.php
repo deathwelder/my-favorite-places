@@ -21,7 +21,10 @@
     <option value="Посёлок городсткого типа">Посёлок городсткого типа</option>
 </select></p>
 
+<p>Загрузите фото:<br>
+<input type="file" name="image">
+
 <button type="submit">Отправить</button>
 </form>
 
-<a href="{{ route('places') }}">Назад</a>
+<a href="{{ route('places') }}">Все места</a>

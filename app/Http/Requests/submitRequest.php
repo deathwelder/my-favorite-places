@@ -24,7 +24,8 @@ class submitRequest extends FormRequest
     public function rules()
     {
         return [
-          'firstname' => 'required|string'
+          'firstname' => 'required|string',
+        //  'firstname' => 'unique:name'
         ];
     }
 
